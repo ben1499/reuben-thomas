@@ -110,7 +110,6 @@ const aboutParasObserver = new IntersectionObserver(
 
 const sectionTitleObserver = new IntersectionObserver(
   ([entry]) => {
-    // console.log("observe", entry.isIntersecting);
     const fromTop = entry.intersectionRect.top;
     const fromBottom = entry.rootBounds.height - entry.intersectionRect.bottom;
 
@@ -209,6 +208,14 @@ setInterval(() => {
     words[current].classList.add("visible");
   }, 500);
 }, 1500);
+
+const hamBtn = document.querySelector(".ham-btn");
+const navLinksContainer = document.querySelector(".nav-links");
+
+hamBtn.addEventListener("click", () => {
+  hamBtn.classList.toggle("appear");
+  navLinksContainer.classList.toggle("dropdown");
+});
 
 tippy(".tooltip.react", {
   content: "React",
